@@ -170,13 +170,3 @@ def video_converter(input_path: str, output_path: str, target_format: str, optio
     except Exception as e:
         print(f"Error converting {input_path}: {e}")
         return False
-
-
-input_video = "C:\\Users\\rudyr\\Downloads\\input_mp4.mp4"
-output_video = "C:\\Users\\rudyr\\Downloads"
-output_format = "mp4"
-video_options = {"resolution": "1920:1080", "codec": "libx264", "preset": "medium", "tune": "film", "crf": 22,
-                 "fps": 60, "audio_codec": "aac", "bitrate": 128, "channel": "mono", "sample_rate": "96000",
-                 "volume": 0}
-
-video_converter(input_video, output_video, output_format, video_options)
