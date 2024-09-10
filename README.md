@@ -1,20 +1,28 @@
-# Video-Tool
+# VideoConverter
 Convert video files to other video formats with custom options using ffmpeg.
 
-## Examlpe
-```python
-from video_tool import video_converter
+## Example
 
-input_video = "C:\\Users\\usr\\Downloads\\input.mp4"
-output_video = "C:\\Users\\usr\\Downloads"
-output_format = "mov"
+```python
+from video_converter import convert_video
+
+def success_callback(msg: str) -> None:
+    print(msg)
+
+
+def failure_callback(msg: str) -> None:
+    print(msg)
+
+
+input_video = "path\\to\\input.mp4"
+output_video = "path\\to\\output"
+output_format = "mp4"
 video_options = {"resolution": "1920:1080", "codec": "libx264", "preset": "medium", "tune": "film", "crf": 23,
                  "fps": 60, "audio_codec": "aac", "bitrate": 192, "channel": "stereo", "sample_rate": "48000",
                  "volume": 0}
 
-
 # Usage
-video_converter(input_video, output_video, output_format, video_options)
+convert_video(input_video, output_video, output_format, success_callback, failure_callback, **video_options)
 ```
 
 ## Options
@@ -30,7 +38,7 @@ video_converter(input_video, output_video, output_format, video_options)
 - Bitrate = 128 - 320
 - Channel = [stereo, mono]
 - Sample rates = [8000, 11025, 16000, 22050, 32000, 44100, 48000, 88200, 96000]
-- Volume = -50 - 100
+- Volume = 0 - 100
 
 Make sure you have installed ffmpeg on your system! 
 https://www.ffmpeg.org/download.html
